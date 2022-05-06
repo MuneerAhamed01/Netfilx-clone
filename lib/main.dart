@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
                 primarySwatch: Colors.blue,
                 scaffoldBackgroundColor: backgroundColor),
-            home: const BottomNavBar(),
+            home: BottomNavBar(),
           );
         });
   }

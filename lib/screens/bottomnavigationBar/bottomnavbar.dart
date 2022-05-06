@@ -8,14 +8,14 @@ import 'package:netflix/screens/search/search_screen.dart';
 import 'widgets/bottomnav.dart';
 
 class BottomNavBar extends StatelessWidget {
-  const BottomNavBar({Key? key}) : super(key: key);
+  BottomNavBar({Key? key}) : super(key: key);
 
-  final _pages = const [
+  final _pages = [
     HomeScreen(),
-    NewAndHot(),
-    FastLaugh(),
-    SearchScreen(),
-    DownloadsList()
+    const NewAndHot(),
+    const FastLaugh(),
+    const SearchScreen(),
+    const DownloadsList()
   ];
 
   @override

@@ -3,4 +3,4 @@ import 'package:flutter/material.dart';
 
 const backgroundColor = Colors.black;
 const grey = Colors.grey;
-final buttonBlue = Colors.blue[100];
+final buttonBlue = Colors.blue[800];

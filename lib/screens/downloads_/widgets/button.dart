@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class ButtonsForDownload extends StatelessWidget {
   const ButtonsForDownload(
       {Key? key,
+      required this.color,
       required this.text,
       required this.backgroundcolor,
       required this.padding,
@@ -14,6 +15,7 @@ class ButtonsForDownload extends StatelessWidget {
   final EdgeInsets padding;
   final double height;
   final double fontsize;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +27,7 @@ class ButtonsForDownload extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-              color: Colors.white,
-              fontSize: fontsize,
-              fontWeight: FontWeight.bold),
+              color: color, fontSize: fontsize, fontWeight: FontWeight.bold),
         ),
         color: backgroundcolor,
       ),

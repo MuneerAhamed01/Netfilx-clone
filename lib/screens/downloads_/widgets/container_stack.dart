@@ -25,8 +25,9 @@ class ImageRotated extends StatelessWidget {
         height: height,
         width: width, //133
         decoration: BoxDecoration(
+          color: Colors.white,
           borderRadius: BorderRadius.circular(6),
-          image: DecorationImage(image: NetworkImage(image), isAntiAlias: true),
+          image: DecorationImage(image: NetworkImage(image), fit: BoxFit.fill),
         ),
       ),
     );
