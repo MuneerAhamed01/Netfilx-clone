@@ -42,7 +42,10 @@ dependencies:
   tmdb_api: ^2.1.2
   json_annotation: ^4.5.0
   json_serializable: ^6.2.0
-  scrollable_list_tabview: ^0.2.0-nullsafety
+  scrollable_list_tabview:
+    git:
+      url: https://github.com/aswanath/scrollable_list_tabview_custom.git
+      ref: master
   intl: ^0.17.0
   video_player: ^2.4.0
 

@@ -30,7 +30,7 @@ class NewAndHot extends StatelessWidget {
             ScrollableListTab(
                 tab: const ListTab(
                     borderRadius: BorderRadius.all(Radius.circular(30)),
-                    label: Text("🍿 Coming soon"),
+                    label: "🍿 Coming soon",
                     activeBackgroundColor: Colors.white,
                     inactiveBackgroundColor: Colors.black),
                 body: const CustomScrollView(
@@ -45,7 +45,7 @@ class NewAndHot extends StatelessWidget {
             ScrollableListTab(
                 tab: const ListTab(
                     borderRadius: BorderRadius.all(Radius.circular(30)),
-                    label: Text("👀 Everyone Watching"),
+                    label: "👀 Everyone Watching",
                     activeBackgroundColor: Colors.white,
                     inactiveBackgroundColor: Colors.black),
                 body: const CustomScrollView(
@@ -60,7 +60,7 @@ class NewAndHot extends StatelessWidget {
             ScrollableListTab(
                 tab: const ListTab(
                     borderRadius: BorderRadius.all(Radius.circular(30)),
-                    label: Text("🔝 Top 10"),
+                    label: "🔝 Top 10",
                     activeBackgroundColor: Colors.white,
                     inactiveBackgroundColor: Colors.black),
                 body: const CustomScrollView(

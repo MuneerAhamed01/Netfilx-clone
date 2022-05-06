@@ -495,9 +495,11 @@ packages:
   scrollable_list_tabview:
     dependency: "direct main"
     description:
-      name: scrollable_list_tabview
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "."
+      ref: master
+      resolved-ref: "4e914231ace8d9b618f2265f0c5c1f154966c533"
+      url: "https://github.com/aswanath/scrollable_list_tabview_custom.git"
+    source: git
     version: "0.2.0-nullsafety"
   scrollable_positioned_list:
     dependency: transitive

@@ -45,11 +45,6 @@ class EveryoneWaching extends StatelessWidget {
     return FutureBuilder(
         future: getMovies(nowPlaying),
         builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
-          final snapImage = snapshot.data![index].backdropPath!;
-
-          final snapTitle = snapshot.data![index].originalTitle!;
-          final snapTitleOf = snapshot.data![index].title!;
-          final snapOverview = snapshot.data![index].overview!;
           return snapshot.hasData
               ? Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,7 +63,8 @@ class EveryoneWaching extends StatelessWidget {
                                 color: Colors.blue,
                                 borderRadius: BorderRadius.circular(10),
                                 image: DecorationImage(
-                                    image: NetworkImage(imageId + snapImage),
+                                    image: NetworkImage(imageId +
+                                        snapshot.data![index].backdropPath!),
                                     fit: BoxFit.fill),
                               ),
                             ),
@@ -79,7 +75,7 @@ class EveryoneWaching extends StatelessWidget {
                                   SizedBox(
                                     width: 110,
                                     child: Text(
-                                      snapTitle,
+                                      snapshot.data![index].originalTitle!,
                                       overflow: TextOverflow.clip,
                                       style: TextStyle(
                                           fontSize: 30.sp,
@@ -109,13 +105,13 @@ class EveryoneWaching extends StatelessWidget {
                             ),
                             boxSub,
                             Text(
-                              snapTitleOf,
+                              snapshot.data![index].originalTitle!,
                               style: styleTextBold,
                             ),
                             Padding(
                               padding: EdgeInsets.only(right: 40.w, top: 6.h),
                               child: Text(
-                                snapOverview,
+                                snapshot.data![index].overview!,
                                 style: const TextStyle(color: Colors.grey),
                               ),
                             )

@@ -46,14 +46,6 @@ class ComingSoonBody extends StatelessWidget {
     return FutureBuilder(
         future: getMovies(upcoming),
         builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
-          final snapImage = snapshot.data![index].backdropPath!;
-          final snapDate = snapshot.data![index].releaseDate!;
-          final dateDay = DateFormat('dd').format(DateTime.parse(snapDate));
-          final dateMonth = DateFormat('MMM').format(DateTime.parse(snapDate));
-          final snapTitle = snapshot.data![index].originalTitle!;
-          final snapTitleOf = snapshot.data![index].title!;
-          final snapOverview = snapshot.data![index].overview!;
-
           return snapshot.hasData
               ? Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -65,7 +57,8 @@ class ComingSoonBody extends StatelessWidget {
                         child: Column(
                           children: [
                             Text(
-                              dateMonth,
+                              DateFormat('MMM').format(DateTime.parse(
+                                  snapshot.data![index].releaseDate!)),
                               style: TextStyle(
                                   color: Colors.grey, fontSize: 23.sp),
                               textAlign: TextAlign.center,
@@ -73,7 +66,8 @@ class ComingSoonBody extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.only(right: 6),
                               child: Text(
-                                dateDay,
+                                DateFormat('dd').format(DateTime.parse(
+                                    snapshot.data![index].releaseDate!)),
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 25.sp,
@@ -97,7 +91,8 @@ class ComingSoonBody extends StatelessWidget {
                               color: Colors.blue,
                               borderRadius: BorderRadius.circular(10),
                               image: DecorationImage(
-                                  image: NetworkImage(imageId + snapImage),
+                                  image: NetworkImage(imageId +
+                                      snapshot.data![index].backdropPath!),
                                   fit: BoxFit.fill),
                             ),
                           ),
@@ -108,7 +103,7 @@ class ComingSoonBody extends StatelessWidget {
                                 SizedBox(
                                   width: 110,
                                   child: Text(
-                                    snapTitle,
+                                    snapshot.data![index].originalTitle!,
                                     style: TextStyle(
                                         fontSize: 30.sp,
                                         fontWeight: FontWeight.w600,
@@ -132,13 +127,13 @@ class ComingSoonBody extends StatelessWidget {
                           ),
                           box,
                           Text(
-                            snapTitleOf,
+                            snapshot.data![index].title!,
                             style: styleTextBold,
                           ),
                           Padding(
                             padding: EdgeInsets.only(right: 40.w, top: 6.h),
                             child: Text(
-                              snapOverview,
+                              snapshot.data![index].overview!,
                               style: const TextStyle(color: Colors.grey),
                             ),
                           )

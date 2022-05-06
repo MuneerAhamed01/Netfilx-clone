@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:netflix/screens/fast_laugh/api_for_video/videofile.dart';
 import 'package:video_player/video_player.dart';
 import '../../../core/widgets.dart';
 import '../../downloads_/downloadscreen.dart';
@@ -29,25 +30,32 @@ class _TheReelsState extends State<TheReels> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Stack(
       alignment: AlignmentDirectional.bottomStart,
       children: [
         SizedBox(
-            height: double.infinity,
-            width: double.infinity,
-            child: AspectRatio(
-              aspectRatio: _controller.value.aspectRatio,
-              child: VideoPlayer(_controller),
-            )
-            //  Container(
-            //     color: Colors.black,
-            //     child: const Center(
-            //         child: SizedBox(
-            //             height: 50,
-            //             width: 50,
-            //             child: CircularProgressIndicator()))),
-            ),
+          height: double.infinity,
+          width: double.infinity,
+          child: _controller.value.isInitialized
+              ? AspectRatio(
+                  aspectRatio: _controller.value.aspectRatio,
+                  child: VideoPlayer(_controller),
+                )
+              : Container(
+                  color: Colors.black,
+                  child: const Center(
+                      child: SizedBox(
+                          height: 50,
+                          width: 50,
+                          child: CircularProgressIndicator()))),
+        ),
         Padding(
           padding: EdgeInsets.only(left: 16.w, bottom: 15.h),
           child: Row(
@@ -71,7 +79,7 @@ class _TheReelsState extends State<TheReels> {
                     Padding(
                       padding: EdgeInsets.only(right: 6.w, bottom: 6.h),
                       child: CircleAvatar(
-                        backgroundImage: NetworkImage(imageView[0]),
+                        backgroundImage: NetworkImage(images[widget.index]),
                         radius: 28.r,
                       ),
                     ),
